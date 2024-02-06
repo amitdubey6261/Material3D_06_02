@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Material3D @ VisCommerce</title>
+  <link rel="stylesheet" href="src/style.css">
+  <script src="src/main.ts" defer type="module"></script>
+</head>
+
+<body>
+  <div id="ui-container">
+
+    <!-- <div id="RoomCard" class="openingCard">
+      <div class="img-container"><img src="https://d2629xvaofl3d3.cloudfront.net/material.webp" alt=""></div>
+      <div class="text-container">
+        <div ><img class="vc-image" src="https://d2629xvaofl3d3.cloudfront.net/CompanyLogo.jpg" alt=""></div>
+        <div class="heading"><p>Collaboration3D</p></div>
+        <select id="room-name">
+          <option value="Glacier National Park">Glacier National Park</option>
+          <option value="Grand Canyon National Park">rand Canyon National Park</option>
+          <option value="Yellowstone National Park">Yellowstone National Park</option>
+          <option value="Yosemite National Park">Yosemite National Park</option>
+          <option value="Zion National Park">Zion National Park</option>
+          <option value="Grand Teton National Park">Grand Teton National Park</option>
+          <option value="Olympic National Park">Olympic National Park</option>
+          <option value="Arches National Park">Arches National Park</option>
+          <option value="Bryce Canyon National Park">Bryce Canyon National Park</option>
+          <option value="Sequoia National Park">Sequoia National Park</option>
+          <option value="Hawai'i Volcanoes National Park">Hawai'i Volcanoes National Park</option>
+          <option value="Crater Lake National Park">Crater Lake National Park</option>
+          <option value="Acadia National Park">Acadia National Park</option>
+          <option value="Great Smoky Mountains National Park">Great Smoky Mountains National Park</option>
+        </select>
+        <div class="card-input"><button  class="input-card" id="room-submit">Get A Room</button></div>
+      </div>
+    </div> -->
+
+    <div class="spinner-container">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Add a switch for day and night light -->
+    <!-- <label class="switch" id="dayNightToggle">
+      <input type="checkbox">
+      <span class="slider round"></span>
+    </label> -->
+
+
+
+    <div class="undoRedoSwitch">
+      <button id="Undo"><img src="https://d2629xvaofl3d3.cloudfront.net/undo.png" alt=""></button>
+      <button id="Redo"><img src="https://d2629xvaofl3d3.cloudfront.net/redo.png" alt=""></button>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-button" data-target="Leather" onclick="toggleAccordion('Leather')">Leather</button>
+      <div class="accordion-content" id="Leather">
+        <div class="button-container">
+          <button class="button">
+            <img class="dynamic-mate" src="/Thumbnails/Compressed/Leather1.png" data-model="Sofa"
+              data-variant="Full_Grain_Brown_leather" alt="Leather 1">
+            <p class="image-name">Tuscana Sienna</p>
+          </button>
+          <button class="button">
+            <img class="dynamic-mate" src="/Thumbnails/Compressed/Leather2.png" data-model="Sofa"
+              data-variant="Blue_Suede_leather" alt="Leather 2">
+            <p class="image-name">Euro Nappa Ocean Floor</p>
+          </button>
+          <button class="button">
+            <img class="dynamic-mate" src="/Thumbnails/Compressed/Leather3.png" data-model="Sofa"
+              data-variant='Pattern_leather' data-material="Pattern_leather" alt="Leather 3">
+            <p class="image-name">Worn Leather</p>
+          </button>
+          <button class="button">
+            <img class="dynamic-mate" src="/Thumbnails/Compressed/Leather4.png" data-model="Sofa" data-variant='Orange'
+              data-material="Orange" alt="Leather 4">
+            <p class="image-name">Euro Nappa Ripe Reach</p>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-button" data-target="Fabric" onclick="toggleAccordion('Fabric')">Fabric</button>
+      <div class="accordion-content" id="Fabric">
+        <div class="button-container">
+          <button class="button">
+            <img class="dynamic-mate" src="/Thumbnails/Compressed/Dark Fabric.png" data-model="Sofa"
+              data-variant='Dark_Fabric' data-material='Dark_Fabric' alt="Fabric 1">
+            <p class="image-name">Brushed Cotton (Dark)</p>
+          </button>
+          <button class="button">
+            <img class="dynamic-mate" src="/Thumbnails/Compressed/Pink Fabric.png" data-model="Sofa"
+              data-variant='Pink_Fabric' alt="Fabric 2">
+            <p class="image-name">Woven Wool (Pink)</p>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="accordion">
+      <button class="accordion-button" data-target="Velvet" onclick="toggleAccordion('Velvet')">Velvet</button>
+      <div class="accordion-content" id="Velvet">
+        <div class="button-container">
+          <button class="button">
+            <img class="dynamic-mate" src="/Thumbnails/Compressed/Red Velvet.png" data-model="Sofa"
+              data-variant='Red_Velvet' alt="Velvet 1">
+            <p class="image-name">Burgundy Velvet</p>
+          </button>
+          <!-- <button class="button">
+            <img class="dynamic-mate" src="/Thumbnails/Compressed/Sage Blue Velvet.png" data-model="Sofa"
+              data-variant='Sage_Blue_Velvet' alt="Velvet 2">
+            <p class="image-name">Sage Blue</p>
+          </button> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="accordion">
+      <button class="accordion-button" data-target="Metal" onclick="toggleAccordion('Metal')">Metal</button>
+      <div class="accordion-content" id="Metal">
+        <div class="button-container">
+          <button class="button">
+            <img src="/Thumbnails/Compressed/chrome.png" data-model="Coffee_Table" data-variant='Chrome' alt="chrome">
+            <p class="image-name">Chrome</p>
+          </button>
+          <button class="button">
+            <img src="/Thumbnails/Compressed/Brass.png" data-model="Coffee_Table" data-variant='Brass' alt="brass">
+            <p class="image-name">Brass</p>
+          </button>
+          <button class="button">
+            <img src="/Thumbnails/Compressed/Wrought Iron.png" data-model="Coffee_Table" data-variant='Wrought_Iron' alt="wrought iron">
+            <p class="image-name">Wrought Iron</p>
+          </button>
+          <button class="button">
+            <img src="/Thumbnails/Compressed/aluminium.png" data-model="Coffee_Table" data-variant='Aluminium'
+              alt="aluminium">
+            <p class="image-name">Aluminium</p>
+          </button>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div class="accordion">
+      <button class="accordion-button" data-target="Glass" onclick="toggleAccordion('Glass')">Glass</button>
+      <div class="accordion-content" id="Glass">
+        <div class="button-container">
+          <button class="button">
+            <img src="/Thumbnails/Compressed/frosted glass.png" data-model="Window" data-variant='Frosted_Glass'
+              alt="frosted glass">
+            <p class="image-name">Frosted</p>
+          </button>
+          <button class="button">
+            <img src="/Thumbnails/Compressed/tinted glass.png" data-model="Window" data-variant='Tinted_Glass'
+              alt="tinted glass">
+            <p class="image-name">Tinted</p>
+          </button>
+          <button class="button">
+            <img src="/Thumbnails/Compressed/shattered glass.png" data-model="Window" data-variant='Shattered_Glass'
+              alt="shattered glass">
+            <p class="image-name">Shattered</p>
+          </button>
+          <button class="button">
+            <img src="/Thumbnails/Compressed/decorative glass.png" data-model="Window" data-variant='Decorative_Glass'
+              alt="decorative glass">
+            <p class="image-name">Decorative</p>
+          </button>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div class="accordion">
+      <button class="accordion-button" data-target="Paints" onclick="toggleAccordion('Paints')">Paints</button>
+      <div class="accordion-content" id="Paints">
+        <div class="button-container">
+          <button class="button">
+            <img src="/Thumbnails/Compressed/1.jpg" data-model="Wall" data-variant='Brown_Theme' alt="Brown_Theme">
+            <p class="image-name">Antiquarian Brown</p>
+          </button>
+          <button class="button">
+            <img src="/Thumbnails/Compressed/2.jpg" data-model="Wall" data-variant='Honey_Theme' alt="Honey_Theme">
+            <p class="image-name">Honeydew Melon</p>
+          </button>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div class="accordion">
+      <button class="accordion-button" data-target="Wallpapers" onclick="toggleAccordion('Wallpapers')">Wallpapers</button>
+      <div class="accordion-content" id="Wallpapers">
+        <div class="button-container">
+          <button class="button">
+            <img src="/Thumbnails/Compressed/Pink.png" data-model="Wall" data-variant='Pink_Theme' alt="Pink_Theme">
+            <p class="image-name">Synaptic</p>
+          </button>
+          <button class="button">
+            <img src="/Thumbnails/Compressed/Gold.png" data-model="Wall" data-variant='Gold_Theme' alt="Gold_Theme">
+            <p class="image-name">Golden Floral</p>
+          </button>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="accordion">
+      <button class="accordion-button" data-target="Carpet" onclick="toggleAccordion('Carpet')">Carpet</button>
+      <div class="accordion-content" id="Carpet">
+        <div class="button-container">
+          <input class="specificObjectToggle" type="checkbox" id="specificObjectToggle" checked>Add/Delete wall to wall
+          Carpet
+          <button class="button">
+            <img class="dynamic-mate-carpet" src="/Thumbnails/Compressed/Carpet1.png" data-model="Carpet"
+              data-variant='Tailored' alt="Carpet 1">
+            <p class="image-name">Tailored Essence</p>
+          </button>
+          <button class="button">
+            <img class="dynamic-mate-carpet" src="/Thumbnails/Compressed/Carpet2.png" data-model="Carpet"
+              data-variant='LiningtonManor' alt="Carpet 2">
+            <p class="image-name">Linington Manor</p>
+          </button>
+          <button class="button">
+            <img class="dynamic-mate-carpet" src="/Thumbnails/Compressed/Carpet3.png" data-model="Carpet"
+              data-variant='PatternCarpet' alt="Carpet 3">
+            <p class="image-name">Pattern <br>Carpet</p>
+          </button>
+          <button class="button">
+            <img class="dynamic-mate-carpet" src="/Thumbnails/Compressed/Carpet4.png" data-model="Carpet"
+              data-variant='SculpturedTouch' alt="Carpet 4">
+            <p class="image-name">Sculptured Touch</p>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-button" data-target="Flooring" onclick="toggleAccordion('Flooring')">Flooring</button>
+      <div class="accordion-content" id="Flooring">
+        <div class="button-container">
+          <button class="button">
+            <img class="dynamic-mate-floor" src="/Thumbnails/Compressed/Leminate.png" data-model="Floor"
+              data-variant='Laminate' alt="Floor1">
+            <p class="image-name">Laminate</p>
+          </button>
+          <!-- <button class="button">
+            <img class="dynamic-mate-floor" src="/Thumbnails/Compressed/Marble.png" data-model="Floor"
+              data-variant='Traonyx' alt="Floor2">
+            <p class="image-name">Traonyx</p>
+          </button> -->
+          <button class="button">
+            <img class="dynamic-mate-floor" src="/Thumbnails/Compressed/Vinyl.png" data-model="Floor"
+              data-variant='Marble' alt="Floor3">
+            <p class="image-name">Vinyl</p>
+          </button>
+          <!-- <button class="button">
+            <img class="dynamic-mate-floor" src="/Thumbnails/Compressed/Ceramic.png" data-model="Floor"
+              data-variant='Tiles' alt="Floor4">
+            <p class="image-name">Granite</p>
+          </button> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-button" data-target="Lights" onclick="toggleAccordion('Lights')">Light Controls</button>
+      <div class="accordion-content" id="Lights">
+        <div class="button-container">
+          <button class="button">
+            <input type="checkbox" name="" id="toggle">
+            <p class="image-name">On/Off</p>
+          </button>
+          <button class="button">
+            <input type="range" name="" id="intensity" value="0" max="15">
+            <p class="image-name">Intensity</p>
+          </button>
+          <button class="button">
+            <input type="color" name="" id="color">
+            <p class="image-name">Color</p>
+          </button>
+          <button class="button">
+            <input type="checkbox" name="" id="dayNightToggle">
+            <p class="image-name">Day/Night</p>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-button" data-target="Sofa" onclick="toggleAccordion('Sofa')">Sofa Variants</button>
+      <div class="accordion-content" id="Sofa">
+        <div class="button-container">
+          <button class="button">
+            <img id="2Seater" src="/Thumbnails/Compressed/Dark Fabric.png">
+            <p class="image-name">Swap3Seater/Swap2seater</p>
+          </button>
+          <button class="button">
+            <img id="3Seater" src="/Thumbnails/Compressed/Pink Fabric.png">
+            <p class="image-name">Lounge Chair</p>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-button" data-target="adv" onclick="toggleAccordion('adv')">Advance</button>
+      <div class="accordion-content" id="adv">
+        <div style="display: block; font-size: large; padding-top: 20px; padding-bottom: 20px;" class=""> Anti-Aliasing </div>
+        <div class="button-container">
+          <button class="button customPostprocessing">
+              <input type="checkbox" id="TAA_C" name="Preferences" value="TAA_C" checked/>
+              <label class="image-name">TAA</label>
+          </button>
+        </div>
+        <div class="button-container customPostprocessing">
+          <button class="button">
+              <input type="checkbox" id="FXAA_C" name="Preferences" value="FXAA_C" />
+              <label class="image-name">FXAA</label>
+          </button>
+        </div>
+        <div class="button-container customPostprocessing">
+          <button class="button">
+              <input type="checkbox" id="SSAA_C" name="Preferences" value="SSAA_C" />
+              <label class="image-name">SSAA</label>
+          </button>
+        </div>
+        <div class="button-container customPostprocessing">
+          <button class="button">
+              <input type="checkbox" id="SMAA_C" name="Preferences" value="SMAA_C" />
+              <label class="image-name">SMAA</label>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="accordion">
+      <div class="d-flex flex-row pb-1 customPostprocessing">
+        <input type="checkbox" id="TAA_C" name="Preferences" value="TAA_C" />
+        <label for="TAA_C">TAA</label>
+      </div>
+      <div class="d-flex flex-row pb-1 customPostprocessing">
+        <input type="checkbox" id="FXAA_C" name="Preferences" value="FXAA_C" />
+        <label for="FXAA_C">FXAA</label>
+      </div>
+      <div class="d-flex flex-row pb-1 customPostprocessing">
+        <input type="checkbox" id="SSAA_C" name="Preferences" value="SSAA_C" />
+        <label for="SSAA_C">SSAA</label>
+      </div>
+      <div class="d-flex flex-row pb-1 customPostprocessing">
+        <input type="checkbox" id="SMAA_C" name="Preferences" value="SMAA_C" />
+        <label for="SMAA_C">SMAA</label>
+      </div>
+    </div> -->
+
+    <!-- <div class="accordion">
+      <button class="accordion-button" data-target="DoUndo" onclick="toggleAccordion('DoUndo')">Undo Redo</button>
+      <div class="accordion-content" id="DoUndo">
+        <div class="button-container">
+          <button class="button">
+            <input type="button" name="" id="Undo">
+            <p class="image-name">Undo</p>
+          </button>
+          <button class="button">
+            <input type="button" name="" id="Redo">
+            <p class="image-name">Redo</p>
+          </button>
+        </div>
+      </div>
+    </div> -->
+
+  </div>
+
+  <div id="canvas-container"></div>
+
+  <!-- <script type="module" src="bundle.js"></script> -->
+
+  <script>
+    // Function to toggle accordion content
+    function toggleAccordion(accordionId) {
+      const accordionContent = document.getElementById(accordionId);
+      accordionContent.style.display = (accordionContent.style.display === 'block') ? 'none' : 'block';
+
+      const accordionButton = document.querySelector(`.accordion-button[data-target="${accordionId}"]`);
+      accordionButton.classList.toggle('active');
+    }
+
+  </script>
+</body>
+
+</html>
